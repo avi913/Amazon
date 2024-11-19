@@ -22,7 +22,7 @@ name: Build and deploy JAR app to Azure Web App
 env:
   AZURE_WEBAPP_NAME: your-app-name    # set this to the name of your Azure Web App
   JAVA_VERSION: '11'                  # set this to the Java version to use
-  distribution: adoptopenjdk          # specify the Java distribution (adoptopenjdk here)
+  distribution: zulu                  # specify zulu as the distribution
 
 on:
   push:
@@ -43,7 +43,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
-          distribution: ${{ env.distribution }}  # use the correct distribution variable
+          distribution: ${{ env.distribution }}  # using zulu here
           cache: 'maven'
 
       - name: Build with Maven
